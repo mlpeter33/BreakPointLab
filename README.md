@@ -2,7 +2,7 @@
 
 Comprehensive end-to-end and exploratory testing framework for modern web applications, built with Playwright and TypeScript.
 
-##Features
+## Features
 
 -   🚀 End-to-End Testing: Automated workflows for user interactions.
 -   🔐 Negative/Brute Force Testing: Simulate edge cases and malicious user behavior.
@@ -10,7 +10,7 @@ Comprehensive end-to-end and exploratory testing framework for modern web applic
 -   📊 Reports: Detailed HTML reports with screenshots and trace files.
 -   🌐 Cross-Browser Testing: Runs tests on Chromium, WebKit, and Firefox.
 
-##Repository Structure
+## Repository Structure
 
 ```
 BreakPointLab/
