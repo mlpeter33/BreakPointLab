@@ -60,3 +60,6 @@ coverage/
 
 # Lockfiles
 *.lock
+/playwright-report/
+/blob-report/
+/playwright/.cache/
