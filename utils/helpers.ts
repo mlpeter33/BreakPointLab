@@ -3,7 +3,7 @@ export const formatDate = (date: Date): string => {
     return date.toISOString().split('T')[0];
 };
 
-// Generates a random alphanumeric string of the given length, useful for creating unique test data like usernames.
+// Generates a fully random alphanumeric string of the given length, useful for creating unique test data like usernames.
 export const generateRandomString = (length: number): string => {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';
