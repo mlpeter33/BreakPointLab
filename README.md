@@ -22,10 +22,12 @@ BreakPointLab/
 │
 ├── utils/                   # Helper functions and common utilities
 │   ├── helpers.ts           # General utilities
-│   ├── navigation.ts        # Navigation helpers
-│   ├── api-utils.ts         # API interaction utilities
-│   └── custom-assertions.ts # Assertions with higher complexity
-|
+│   ├── Navigation/          # Navigation helpers
+│   ├── API/                 # API interaction utilities
+│   ├── Custom/              # Custom assertions with higher complexity
+│   ├── Hacking/             # Edge case and brute-force testing utilities
+│   └── Generators/          # Test case generation tools
+│
 ├── playwright.config.ts     # Playwright configuration file
 ├── package.json             # Project dependencies and scripts
 ├── README.md                # This file
