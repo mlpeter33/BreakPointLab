@@ -1,19 +1,19 @@
 import { generateRandomString } from "../Generators/string-generator";
 
 //default behavior: alphanumeric string.
-const randomString = generateRandomString(10);
+const randomString = generateRandomString(10, {lowercase: true, uppercase: true, numbers: true });
 console.log(randomString);
 
 //uppercase alphanumeric string.
-const randomCapsString = generateRandomString(10, {lowercase: false, numbers: false });
+const randomCapsString = generateRandomString(10, {uppercase: true, lowercase: false, numbers: false });
 console.log(randomCapsString);
 
 //lowercase alphanumeric string.
-const randomLowerString = generateRandomString(10, {uppercase: false, numbers: false });
+const randomLowerString = generateRandomString(10, {lowercase: true, uppercase: false, numbers: false });
 console.log(randomLowerString);
 
 //numeric string.
-const randomNumberString = generateRandomString(10, {uppercase: false, lowercase: false });
+const randomNumberString = generateRandomString(10, {numbers: true, uppercase: false, lowercase: false });
 console.log(randomNumberString);
 
 //special characters only string.  
