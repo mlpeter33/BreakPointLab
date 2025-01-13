@@ -1,7 +1,7 @@
 // Generate a random string with custom options like uppercase, lowercase, numbers, and special characters. 
 // This is useful for creating unique test data like passwords, usernames, email addresses, etc.
 // Also, it helps to create more realistic test data.
-export const generateEnhancedString = (
+export const generateRandomString = (
     length: number,
     options: {
       uppercase?: boolean;
@@ -20,31 +20,44 @@ export const generateEnhancedString = (
       numbers: '0123456789',
       specialChars: '!@#$%^&*()-_=+[]{}|;:",.<>?/~`',
     };
-  
-    // Combine selected character pools
-    let chars = '';
-    if (uppercase) chars += charPools.uppercase;
-    if (lowercase) chars += charPools.lowercase;
-    if (numbers) chars += charPools.numbers;
-    if (specialChars) chars += charPools.specialChars;
+    // Collect enabled pools and ensure at least one character per enabled type
+    const enabledPools = Object.entries(charPools)
+    .filter(([key]) => options[key as keyof typeof options]) 
+    .map(([, chars]) => chars); 
   
     // Validate input
-    if (!chars) {
-      throw new Error('At least one character type must be enabled.');
+    if (enabledPools.length === 0) {
+         throw new Error('At least one character type must be enabled.');
+    }
+
+    if (length < enabledPools.length) {
+        throw new Error(
+            `Length must be at least ${enabledPools.length} to include at least one of each selected character type.`
+        );
     }
   
-    // Generate random string
-    let result = '';
-    for (let i = 0; i < length; i++) {
-      result += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-  
-    return result;
+
+    const guaranteedChars = enabledPools.map(
+        (pool) => pool.charAt(Math.floor(Math.random() * pool.length))
+    );
+
+
+    const combinedPool = enabledPools.join('');
+    const remainingLength = length - guaranteedChars.length;
+    const remainingChars = Array.from({ length: remainingLength }, () =>
+    combinedPool.charAt(Math.floor(Math.random() * combinedPool.length))
+    );
+
+    const finalResult = [...guaranteedChars, ...remainingChars]
+    .sort(() => Math.random() - 0.5) 
+    .join('');
+
+    return finalResult;
   };
 
   /*To use this function, it must be called with the expected behavior. For example:
-  const randomString = generateRandomString(8, { uppercase: false, lowercase: false, numbers: true });
-  console.log(randomString); // Example output: '38475021'
+  const randomNumberString = generateRandomString(8, { uppercase: false, lowercase: false, numbers: true });
+  console.log(randomNumberString); // Example output: '38475021'
 
   the following path contains more calls to the function that serve as examples:
     BreakPointLab/
