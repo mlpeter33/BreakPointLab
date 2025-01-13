@@ -17,7 +17,10 @@ export const generateUltimateEmail = (options?: {
   }): string => {
 
     const config = {
-      domainPool: ['example.com', 'mail.com', 'test.org', 'company.net', 'service.io', 'app.dev', 'platform.xyz'],
+      domainPool: ['example.com', 'mail.com', 'test.org', 'company.net', 'service.io', 
+      'app.dev', 'platform.xyz', 'mydomain.org', 'business.co', 'startup.tech',
+      'appcloud.com', 'webmail.biz', 'secure.net', 'innovation.ai', 'workspace.pro',
+      'portal.app', 'connect.dev', 'dash.site', 'support.help', 'testlab.io',],
       includeRealisticNames: true,
       addRandomNumber: true,
       includeSymbols: true,
@@ -30,7 +33,10 @@ export const generateUltimateEmail = (options?: {
     const symbols = ['.', '_', '-'];
     const realisticFirstNames = ['john', 'jane', 'alex', 'rachel', 'michael', 'emily', 'daniel', 'sarah'];
     const realisticLastNames = ['smith', 'brown', 'williams', 'johnson', 'miller', 'davis', 'garcia', 'martinez'];
-    const genericPrefixes = ['info', 'admin', 'team', 'support', 'contact', 'user', 'noreply', 'help'];
+    const genericPrefixes = [
+        'info', 'admin', 'team', 'support', 'contact', 'user', 'noreply', 'help',
+        'service', 'orders', 'clients', 'staff', 'sales', 'testing', 'testuser',
+    ];
   
     const randomize = (pool: string | string[], length: number = 1): string =>
       Array.from({ length }, () => pool[Math.floor(Math.random() * pool.length)]).join('');
