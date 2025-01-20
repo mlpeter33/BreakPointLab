@@ -122,4 +122,7 @@ test('User can log in successfully', async ({ page }) => {
 
 Thanks to the Playwright team for creating such a powerful testing framework.
 
-## Roadmap
+## To do list
+
+-   Create a diverse and useful utility folder.
+-   Use case for almost every util
