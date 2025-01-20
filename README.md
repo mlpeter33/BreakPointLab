@@ -125,4 +125,4 @@ Thanks to the Playwright team for creating such a powerful testing framework.
 ## To do list
 
 -   Create a diverse and useful utility folder.
--   Use case for almost every util
+-   Use case for almost every util.
