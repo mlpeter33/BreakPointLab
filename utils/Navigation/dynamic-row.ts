@@ -1,5 +1,5 @@
 import { Page } from '@playwright/test';
- 
+
 export const DynamicRowSelect = async (page: Page): Promise<void> => {
 
     const rowsLocator = page.locator('role=row');
