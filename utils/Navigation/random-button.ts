@@ -15,6 +15,6 @@ export const ClickRandomButton = async (page: Page, containerSelector: string = 
   await buttonsLocator.nth(randomButtonIndex).click();
 };
 
-// Just call the function as (ClickRandomButton(page)) to click a random button on the page. 
+// Just call the function as ClickRandomButton(page) to click a random button on the page. 
 // Also, you can pass an optional containerSelector parameter to narrow down the search for buttons.
 // Example: ClickRandomButton(page, '#modal') to click a random button inside a modal.
