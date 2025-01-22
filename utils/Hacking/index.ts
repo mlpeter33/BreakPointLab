@@ -1,1 +1,0 @@
-export { corruptFile } from './file-corrupter';
