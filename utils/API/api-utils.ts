@@ -1,37 +1,25 @@
-import axios, { AxiosRequestConfig, AxiosResponse, Method } from 'axios/index';
-
-// Automatically retries failed API requests using exponential backoff
-
-export async function retryWrapper<T>(
-    url: string,
-    method: Method = 'GET', 
-    config: AxiosRequestConfig = {},
-    retries: number = 3,
-    delay: number = 500
-): Promise<AxiosResponse<T>> {
-    let attempt = 0;
-    //Logs the number of attempts and the method and url of the request
-    while (attempt < retries) {
-        try {
-            console.log(`Attempt ${attempt + 1} for ${method} ${url}`);
-            return await axios.request<T>({ ...config, url, method });
-        } catch (error) {
-            console.warn(`Retry attempt ${attempt + 1} failed:`, error);
-            if (attempt < retries - 1) {
-                await new Promise((resolve) =>
-                    setTimeout(resolve, delay * Math.pow(2, attempt))
-                );
-            } else {
-                throw error;
-            }
-        }
-        attempt++;
-    }
-    throw new Error("Failed to fetch data");
+// This function ensures API responses match an expected structure (prevents errors from unexpected data).
+export function validateApiResponse<T>(
+    data: any,
+    schema: Record<string, string>
+): data is T {
+    return Object.keys(schema).every((key) => typeof data[key] === schema[key]);
 }
 
-/**Example usage: 
- * retryWrapper("https://api.example.com/data", "GET") // GET request
-    .then(response => console.log("Data:", response.data)) // Success
-    .catch(error => console.error("Final API Error:", error)); // Failure
+/**Example usage:
+ * 
+const userSchema = {
+    id: "number",
+    name: "string",
+    email: "string"
+};
+
+axios.get("https://api.example.com/user")
+    .then(response => {
+        if (validateApiResponse<typeof userSchema>(response.data, userSchema)) {
+            console.log("Valid response:", response.data);
+        } else {
+            console.error("Invalid response!");
+        }
+    });
  */
