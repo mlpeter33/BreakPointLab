@@ -1,12 +1,12 @@
-# BreakPointLab
+# BreakPointLab ⚠️GETTING A MAJOR REWORK! ⚠️
 
-Comprehensive end-to-end and exploratory testing framework for modern web applications, built with Playwright and TypeScript.
+I'm shifting from a simple utils library to a powerful test/scripting assistant with virtualized testing environments, deep browser debugging, and advanced automation. All the information bellow will be outdated, Stay tuned for updates!
 
-## Features
+## Features 
 
--   🚀 End-to-End Testing: Automated workflows for user interactions.
+-   🚀 End-to-End Testing: Automated workflows for user interactions. 
 -   🔐 Negative/Brute Force Testing: Simulate edge cases and malicious user behavior.
--   🔧 Reusable Utilities: Shared helpers for common tasks (e.g., authentication, navigation).
+-   🔧 Reusable Utilities: Shared helpers for common tasks (e.g., authentication, navigation). 
 -   📊 Reports: Detailed HTML reports with screenshots and trace files.
 -   🌐 Cross-Browser Testing: Runs tests on Chromium, WebKit, and Firefox.
 
