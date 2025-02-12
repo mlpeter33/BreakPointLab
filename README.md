@@ -10,7 +10,7 @@ I'm shifting from a simple utils library to a powerful test/scripting assistant 
 -   📊 Reports: Detailed HTML reports with screenshots and trace files.
 -   🌐 Cross-Browser Testing: Runs tests on Chromium, WebKit, and Firefox.
 
-## Repository Structure
+## Repository Structure *(Outdated)*
 
 ```
 BreakPointLab/
